@@ -164,7 +164,7 @@ class ARCoreBackgroundSession(
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            updateObjectPosition(translation, rotation)
+            invokeOnUpdate(translation, rotation)
 
             pickScreenShotCamera(frame)
         } catch (e: NotYetAvailableException) {
@@ -178,7 +178,7 @@ class ARCoreBackgroundSession(
     }
 
 
-    private fun updateObjectPosition(translation: FloatArray, rotation: FloatArray) {
+    private fun invokeOnUpdate(translation: FloatArray, rotation: FloatArray) {
         onUpdate(translation)
         /** translation[0], translation[1], translation[2] give you the x, y, z coordinates
         // rotation[0], rotation[1], rotation[2], rotation[3] give you the quaternion rotation

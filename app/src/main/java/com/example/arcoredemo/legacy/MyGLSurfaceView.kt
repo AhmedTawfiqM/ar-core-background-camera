@@ -1,4 +1,4 @@
-package com.example.arcoredemo
+package com.example.arcoredemo.legacy
 
 import android.content.Context
 import android.opengl.GLSurfaceView

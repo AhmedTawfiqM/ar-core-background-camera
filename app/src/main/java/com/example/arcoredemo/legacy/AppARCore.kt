@@ -1,4 +1,4 @@
-package com.example.arcoredemo
+package com.example.arcoredemo.legacy
 
 import android.os.Handler
 import android.os.Looper
