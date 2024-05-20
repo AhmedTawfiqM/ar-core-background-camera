@@ -3,7 +3,7 @@ package com.example.arcoredemo.arcore
 import android.opengl.GLES11Ext
 import android.opengl.GLES20
 
-class CameraTextureNameFactory {
+object CameraTextureNameFactory {
 
      fun create(): Int {
         // Generate a texture ID
