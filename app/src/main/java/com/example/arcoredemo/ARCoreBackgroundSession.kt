@@ -3,15 +3,8 @@ package com.example.arcoredemo
 import com.google.ar.core.Frame
 import com.google.ar.core.Session
 import com.google.ar.core.exceptions.CameraNotAvailableException
-import com.google.ar.core.exceptions.UnavailableException
-import android.opengl.EGL14
-import android.opengl.EGLConfig
-import android.opengl.EGLContext
-import android.opengl.EGLDisplay
-import android.opengl.EGLSurface
 import com.google.ar.core.exceptions.*
 import android.content.Context
-import android.opengl.*
 import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
