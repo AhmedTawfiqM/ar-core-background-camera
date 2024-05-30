@@ -1,6 +1,8 @@
 package com.example.arcoredemo
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.arcoredemo.arcore.ARCorePermission
 import com.example.arcoredemo.databinding.ActivityMainBinding
@@ -17,17 +19,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         ARCorePermission(this).setup()
-        arCoreBackgroundSession = ARCoreBackgroundSession(this) {
-            movePinMarker(it)
+        arCoreBackgroundSession = ARCoreBackgroundSession(this) { transition, direction ->
+            movePinMarker(transition, direction)
         }
     }
 
-    private fun movePinMarker(translation: FloatArray) {
+    private fun movePinMarker(translation: FloatArray, direction: String) {
         val x = translation[0] * 100
         val y = translation[2] * 100
 
         binding.pinMarker.translationX = x
         binding.pinMarker.translationY = y
+
+        Handler(Looper.getMainLooper()).post {
+            binding.tvDirection.text = "Direction: $direction"
+        }
     }
 
     override fun onPause() {

@@ -10,12 +10,13 @@ import android.os.Looper
 import android.widget.Toast
 import com.example.arcoredemo.arcore.CameraTextureNameFactory
 import com.example.arcoredemo.arcore.OpenGLAPI
+import com.example.arcoredemo.equations.ArrowDirectionDetector
 import java.util.Arrays
 
 
 class ARCoreBackgroundSession(
     private val context: Context,
-    val onUpdate: (transition: FloatArray) -> Unit = {}
+    val onUpdate: (transition: FloatArray,String) -> Unit
 ) {
     private lateinit var session: Session
     private val openGLAPI = OpenGLAPI()
@@ -97,7 +98,8 @@ class ARCoreBackgroundSession(
 
 
     private fun invokeOnUpdate(translation: FloatArray, rotation: FloatArray) {
-        onUpdate(translation)
+        val direction = ArrowDirectionDetector.detectMethod2(translation,rotation)
+        onUpdate(translation,direction)
         /** translation[0], translation[1], translation[2] give you the x, y, z coordinates
         // rotation[0], rotation[1], rotation[2], rotation[3] give you the quaternion rotation
          */
