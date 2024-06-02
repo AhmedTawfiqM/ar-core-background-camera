@@ -11,7 +11,9 @@ import com.example.arcoredemo.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private lateinit var arCoreBackgroundSession: ARCoreBackgroundSession
+    private var arCoreBackgroundSession = ARCoreBackgroundSession(this) { transition, direction ->
+        movePinMarker(transition, direction)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         ARCorePermission(this).setup()
-        arCoreBackgroundSession = ARCoreBackgroundSession(this) { transition, direction ->
-            movePinMarker(transition, direction)
-        }
     }
 
     private fun movePinMarker(translation: FloatArray, direction: String) {

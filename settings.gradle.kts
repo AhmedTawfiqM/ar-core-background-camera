@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "ARCore Demo"
 include(":app")
- 
+include(":opencv")
