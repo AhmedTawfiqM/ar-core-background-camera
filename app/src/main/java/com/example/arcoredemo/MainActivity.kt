@@ -6,6 +6,8 @@ import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.arcoredemo.arcore.ARCorePermission
 import com.example.arcoredemo.databinding.ActivityMainBinding
+import com.example.arcoredemo.opencv.AppOpenCV
+import org.opencv.android.OpenCVLoader
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,6 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         ARCorePermission(this).setup()
+        AppOpenCV.setup()
     }
 
     private fun movePinMarker(translation: FloatArray, direction: String) {
