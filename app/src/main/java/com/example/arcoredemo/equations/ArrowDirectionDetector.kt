@@ -3,6 +3,15 @@ package com.example.arcoredemo.equations
 import kotlin.math.abs
 
 object ArrowDirectionDetector {
+    enum class Direction {
+        Right,
+        Left,
+        Up,
+        Down,
+        Forward,
+        Backward,
+        Unknown
+    }
     fun detect(translation: FloatArray, rotation: FloatArray): String {
         if (translation.size < 3 || rotation.size < 4) {
             throw IllegalArgumentException("Invalid translation or rotation array size")

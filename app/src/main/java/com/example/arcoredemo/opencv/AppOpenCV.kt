@@ -11,7 +11,7 @@ import org.opencv.imgproc.Imgproc
 object AppOpenCV {
 
     fun setup() {
-        val isInitialized = OpenCVLoader.initDebug()
+        val isInitialized = OpenCVLoader.initLocal()
         Log.d("AppOpenCV", "OpenCVLoader: isInitialized $isInitialized")
         debugEstimateAffinePartial2D()
     }
